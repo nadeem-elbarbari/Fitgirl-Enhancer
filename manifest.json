@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "FG Enhancer",
   "version": "1.0.0",
-  "description": "Enhance your experience on FitGirl Repacks.",
+  "description": "Hide or blur Adult-tagged listings and optionally center the layout on fitgirl-repacks.site.",
   "permissions": ["storage"],
   "host_permissions": ["https://fitgirl-repacks.site/*"],
   "background": {
@@ -15,7 +15,7 @@
   },
   "action": {
     "default_popup": "popup/popup.html",
-    "default_title": "FG Prettier",
+    "default_title": "FG Enhancer",
     "default_icon": {
       "16": "icons/icon-on-16.png",
       "32": "icons/icon-on-32.png",

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — FG Enhancer</title>
+    <meta
+      name="description"
+      content="Privacy policy for the FG Enhancer Chrome extension."
+    />
+    <link rel="icon" href="site/icon-48.png" type="image/png" />
+    <link
+      rel="preload"
+      href="site/fonts/fraunces.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="site/fonts/outfit.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body class="page">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="page-header">
+      <a class="brand-link" href="./">FG Enhancer</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="./">Home</a>
+        <a href="privacy.html" aria-current="page">Privacy</a>
+        <a href="https://github.com/nadeem-elbarbari/Fitgirl-Enhancer">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="main" class="page-main">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: 2026-09-14</p>
+
+      <h2>What Data We Collect</h2>
+      <p>
+        FG Enhancer stores only the settings you choose in the popup: whether the
+        Adult filter is enabled, hide vs blur mode, and whether to center the page
+        layout. To filter grid tiles, it also builds a list of Adult-tagged page
+        URLs from fitgirl-repacks.site and caches that list locally for a short
+        time (about 6 hours).
+      </p>
+      <p>
+        The extension does not collect your name, email, browsing history outside
+        that site, payment information, or analytics.
+      </p>
+
+      <h2>How Data Is Stored</h2>
+      <ul>
+        <li>
+          <strong>Settings</strong> use Chrome’s
+          <code>chrome.storage.sync</code> API so they can sync across Chrome
+          browsers signed into the same Google account. That sync is handled by
+          Google, not by us.
+        </li>
+        <li>
+          <strong>Adult URL index</strong> is stored only in
+          <code>chrome.storage.local</code> on your device and is refreshed
+          periodically from fitgirl-repacks.site.
+        </li>
+      </ul>
+      <p>We do not operate our own servers and do not receive your data.</p>
+
+      <h2>How Data Is Used</h2>
+      <p>
+        Settings control the filter and layout features. The Adult URL index is
+        used only to identify which listings on fitgirl-repacks.site should be
+        hidden or blurred.
+      </p>
+
+      <h2>Third-Party Services</h2>
+      <p>
+        The extension does not use analytics, advertising, or other third-party
+        tracking services. It only contacts fitgirl-repacks.site to load the Adult
+        tag pages needed for filtering, and relies on Google Chrome sync if you
+        use a signed-in Chrome profile.
+      </p>
+
+      <h2>Data Sharing</h2>
+      <p>
+        We do not sell or share user data with third parties. Settings synced via
+        Chrome Sync are subject to
+        <a href="https://www.google.com/chrome/privacy/">Google’s Chrome Privacy
+        Notice</a>.
+      </p>
+
+      <h2>Data Retention and Deletion</h2>
+      <p>
+        Settings remain until you change them, reset to defaults, or uninstall the
+        extension. The Adult URL cache is overwritten on refresh and removed when
+        you uninstall the extension. You can also clear extension storage from
+        Chrome’s site/extension settings.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        If data practices change, this page will be updated with a new “Last
+        updated” date.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For privacy questions about FG Enhancer, open an issue on the
+        <a href="https://github.com/nadeem-elbarbari/Fitgirl-Enhancer/issues"
+          >GitHub repository</a
+        >
+        or contact the publisher email listed on the Chrome Web Store listing.
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <span>FG Enhancer · Privacy</span>
+      <a href="./">Back to home</a>
+    </footer>
+  </body>
+</html>

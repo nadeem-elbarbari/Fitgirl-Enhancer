@@ -216,7 +216,7 @@
     try {
       await loadAdultIndex();
     } catch (err) {
-      console.warn("[FG Prettier] Adult index failed", err);
+      console.warn("[FG Enhancer] Adult index failed", err);
     }
 
     chrome.storage.onChanged.addListener((changes, areaName) => {
