@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FitGirl Adult Filter</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <h1>FitGirl Adult Filter</h1>
+
+      <label class="row switch-row" for="enable-filter">
+        <span>Enable filter</span>
+        <input type="checkbox" id="enable-filter" checked />
+      </label>
+
+      <fieldset id="mode-fieldset" class="mode-fieldset">
+        <legend>Mode</legend>
+        <label class="row" for="mode-hide">
+          <input type="radio" name="mode" id="mode-hide" value="hide" checked />
+          <span>Hide completely</span>
+        </label>
+        <label class="row" for="mode-blur">
+          <input type="radio" name="mode" id="mode-blur" value="blur" />
+          <span>Blur covers</span>
+        </label>
+      </fieldset>
+
+      <p id="status" class="status" aria-live="polite">Filtering on · Hide</p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

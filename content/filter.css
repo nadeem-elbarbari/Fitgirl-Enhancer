@@ -1,0 +1,12 @@
+html.fg-adult-filter-hide [data-fg-adult="1"] {
+  display: none !important;
+}
+
+html.fg-adult-filter-blur article[data-fg-adult="1"] img.alignleft,
+html.fg-adult-filter-blur article[data-fg-adult="1"] .entry-content > p:first-of-type img,
+html.fg-adult-filter-blur .widget-grid-view-image[data-fg-adult="1"] img {
+  filter: blur(18px);
+  transform: scale(1.05);
+  pointer-events: none;
+  user-select: none;
+}

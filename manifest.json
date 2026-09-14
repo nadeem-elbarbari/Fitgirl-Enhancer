@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "FitGirl Adult Filter",
+  "version": "1.0.1",
+  "description": "Hide or blur Adult repacks on fitgirl-repacks.site.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://fitgirl-repacks.site/*"],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "FitGirl Bleacher"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://fitgirl-repacks.site/*"],
+      "js": ["content/content-script.js"],
+      "css": ["content/filter.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
