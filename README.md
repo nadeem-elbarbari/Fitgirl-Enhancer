@@ -1,6 +1,6 @@
-# FG Prettier
+# FG Ehancer
 
-Chrome Manifest V3 extension (**FG Prettier**) that hides or blurs Adult-tagged repacks on [fitgirl-repacks.site](https://fitgirl-repacks.site/).
+Chrome Manifest V3 extension (**FG Ehancer**) that hides or blurs Adult-tagged repacks on [fitgirl-repacks.site](https://fitgirl-repacks.site/).
 
 ## Load unpacked
 
