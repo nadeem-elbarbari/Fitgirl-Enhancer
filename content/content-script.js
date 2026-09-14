@@ -8,7 +8,10 @@
   const DEFAULTS = {
     enabled: true,
     mode: "hide",
+    centerContent: false,
   };
+
+  const CENTER_CLASS = "fg-center-content";
 
   const ADULT_INDEX_KEY = "fgAdultUrlIndex";
   const ADULT_INDEX_TTL_MS = 6 * 60 * 60 * 1000;
@@ -87,11 +90,16 @@
     );
   }
 
+  function applyCenterClass(centerContent) {
+    document.documentElement.classList.toggle(CENTER_CLASS, centerContent);
+  }
+
   async function loadSettings() {
     const stored = await chrome.storage.sync.get(DEFAULTS);
     return {
       enabled: stored.enabled !== false,
       mode: stored.mode === "blur" ? "blur" : "hide",
+      centerContent: stored.centerContent === true,
     };
   }
 
@@ -146,21 +154,30 @@
     return [...urls];
   }
 
+  function applyCachedAdultUrls(urls) {
+    adultUrls = new Set(urls);
+    markGridTiles(document);
+  }
+
   async function loadAdultIndex() {
     const cached = await chrome.storage.local.get(ADULT_INDEX_KEY);
     const entry = cached[ADULT_INDEX_KEY];
-    if (
+    const hasCache =
       entry &&
       Array.isArray(entry.urls) &&
       typeof entry.fetchedAt === "number" &&
-      Date.now() - entry.fetchedAt < ADULT_INDEX_TTL_MS
-    ) {
-      adultUrls = new Set(entry.urls);
-      return;
+      entry.urls.length > 0;
+
+    // Use any cached index immediately so grid tiles hide/blur without waiting.
+    if (hasCache) {
+      applyCachedAdultUrls(entry.urls);
+      if (Date.now() - entry.fetchedAt < ADULT_INDEX_TTL_MS) {
+        return;
+      }
     }
 
     const urls = await fetchAdultIndex();
-    adultUrls = new Set(urls);
+    applyCachedAdultUrls(urls);
     await chrome.storage.local.set({
       [ADULT_INDEX_KEY]: { urls, fetchedAt: Date.now() },
     });
@@ -183,26 +200,40 @@
   }
 
   async function init() {
-    markArticles(document);
-    const settings = await loadSettings();
+    /** @type {{ enabled: boolean, mode: string, centerContent: boolean }} */
+    let settings = { ...DEFAULTS };
+
+    // Apply default filter class immediately so CSS works before storage resolves.
     applyModeClass(settings);
+    applyCenterClass(settings.centerContent);
     observeMutations();
+    markAll(document);
+
+    settings = await loadSettings();
+    applyModeClass(settings);
+    applyCenterClass(settings.centerContent);
 
     try {
       await loadAdultIndex();
-      markGridTiles(document);
     } catch (err) {
       console.warn("[FitGirl Adult Filter] Adult index failed", err);
     }
 
     chrome.storage.onChanged.addListener((changes, areaName) => {
       if (areaName !== "sync") return;
-      if (!changes.enabled && !changes.mode) return;
+      if (!changes.enabled && !changes.mode && !changes.centerContent) return;
 
-      (async () => {
-        const next = await loadSettings();
-        applyModeClass(next);
-      })();
+      if (changes.enabled) {
+        settings.enabled = changes.enabled.newValue !== false;
+      }
+      if (changes.mode) {
+        settings.mode = changes.mode.newValue === "blur" ? "blur" : "hide";
+      }
+      if (changes.centerContent) {
+        settings.centerContent = changes.centerContent.newValue === true;
+      }
+      applyModeClass(settings);
+      applyCenterClass(settings.centerContent);
     });
   }
 

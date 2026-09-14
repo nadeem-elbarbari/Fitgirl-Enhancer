@@ -3,10 +3,31 @@ html.fg-adult-filter-hide [data-fg-adult="1"] {
 }
 
 html.fg-adult-filter-blur article[data-fg-adult="1"] img.alignleft,
-html.fg-adult-filter-blur article[data-fg-adult="1"] .entry-content > p:first-of-type img,
+html.fg-adult-filter-blur article[data-fg-adult="1"] .entry-content img,
 html.fg-adult-filter-blur .widget-grid-view-image[data-fg-adult="1"] img {
-  filter: blur(18px);
+  filter: blur(18px) saturate(0.7);
   transform: scale(1.05);
   pointer-events: none;
   user-select: none;
 }
+
+/* Keep screenshot enlarge-links from opening unblurred images */
+html.fg-adult-filter-blur article[data-fg-adult="1"] .entry-content a:has(img) {
+  pointer-events: none;
+}
+
+/* Center fixed-width Twenty Fourteen layout on wide viewports */
+html.fg-center-content #page {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+html.fg-center-content #masthead.site-header {
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  max-width: 1260px !important;
+}
+

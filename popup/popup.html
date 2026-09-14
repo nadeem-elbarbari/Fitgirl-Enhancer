@@ -3,31 +3,74 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FitGirl Adult Filter</title>
+    <meta name="color-scheme" content="dark" />
+    <title>FG Bleacher</title>
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
     <main class="popup">
-      <h1>FitGirl Adult Filter</h1>
+      <header class="brand">
+        <h1 class="brand-mark">FG Bleacher</h1>
+        <p class="tagline">Keep FitGirl feeds clean</p>
+      </header>
 
-      <label class="row switch-row" for="enable-filter">
-        <span>Enable filter</span>
+      <label class="toggle" for="enable-filter">
+        <span class="toggle-copy">
+          <span class="toggle-title">Filter</span>
+          <span class="toggle-hint">
+            <span class="hint-on">Active</span>
+            <span class="hint-off">Paused</span>
+          </span>
+        </span>
         <input type="checkbox" id="enable-filter" checked />
+        <span class="switch" aria-hidden="true">
+          <span class="switch-thumb"></span>
+        </span>
       </label>
 
-      <fieldset id="mode-fieldset" class="mode-fieldset">
+      <label class="toggle" for="center-content">
+        <span class="toggle-copy">
+          <span class="toggle-title">Center layout</span>
+          <span class="toggle-hint">
+            <span class="hint-on">Centered</span>
+            <span class="hint-off">Left-aligned</span>
+          </span>
+        </span>
+        <input type="checkbox" id="center-content" />
+        <span class="switch" aria-hidden="true">
+          <span class="switch-thumb"></span>
+        </span>
+      </label>
+
+      <fieldset id="mode-fieldset" class="modes">
         <legend>Mode</legend>
-        <label class="row" for="mode-hide">
-          <input type="radio" name="mode" id="mode-hide" value="hide" checked />
-          <span>Hide completely</span>
-        </label>
-        <label class="row" for="mode-blur">
-          <input type="radio" name="mode" id="mode-blur" value="blur" />
-          <span>Blur covers</span>
-        </label>
+        <div class="segment" role="presentation">
+          <label class="segment-option" for="mode-hide">
+            <input type="radio" name="mode" id="mode-hide" value="hide" checked />
+            <span class="segment-face">
+              <span class="segment-label">Hide</span>
+              <span class="segment-desc">Remove listings</span>
+            </span>
+          </label>
+          <label class="segment-option" for="mode-blur">
+            <input type="radio" name="mode" id="mode-blur" value="blur" />
+            <span class="segment-face">
+              <span class="segment-label">Blur</span>
+              <span class="segment-desc">Soft covers</span>
+            </span>
+          </label>
+        </div>
       </fieldset>
 
-      <p id="status" class="status" aria-live="polite">Filtering on · Hide</p>
+      <p id="status" class="status" aria-live="polite">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="status-text">Filtering on · Hide</span>
+      </p>
+
+      <button type="button" id="reset-defaults" class="reset">
+        Reset to default
+        <span class="reset-hint">Hide · Filter on · Left</span>
+      </button>
     </main>
     <script src="popup.js"></script>
   </body>
