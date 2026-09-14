@@ -340,6 +340,10 @@ body {
   animation: rise 600ms cubic-bezier(0.22, 1, 0.36, 1) 160ms both;
 }
 
+.reset[hidden] {
+  display: none;
+}
+
 .reset:hover {
   border-color: color-mix(in srgb, var(--accent) 35%, transparent);
   background: color-mix(in srgb, var(--surface-strong) 70%, var(--accent-soft));

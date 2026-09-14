@@ -19,12 +19,21 @@ function statusText(enabled, mode, centerContent) {
   return `Filtering on · ${modeLabel} · ${layout}`;
 }
 
+function isDefault({ enabled, mode, centerContent }) {
+  return (
+    enabled === DEFAULTS.enabled &&
+    mode === DEFAULTS.mode &&
+    centerContent === DEFAULTS.centerContent
+  );
+}
+
 function syncUi({ enabled, mode, centerContent }) {
   enableEl.checked = enabled;
   centerEl.checked = centerContent;
   modeHideEl.checked = mode === "hide";
   modeBlurEl.checked = mode === "blur";
   modeFieldset.disabled = !enabled;
+  resetEl.hidden = isDefault({ enabled, mode, centerContent });
   const textEl = statusEl.querySelector(".status-text");
   if (textEl) {
     textEl.textContent = statusText(enabled, mode, centerContent);
