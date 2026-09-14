@@ -4,63 +4,71 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
-    <title>FG Bleacher</title>
+    <title>FG Enhancer</title>
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
     <main class="popup">
       <header class="brand">
-        <h1 class="brand-mark">FG Bleacher</h1>
-        <p class="tagline">Keep FitGirl feeds clean</p>
+        <h1 class="brand-mark">FG Enhancer</h1>
+        <p class="tagline">Make FitGirl Great Again</p>
       </header>
 
-      <label class="toggle" for="enable-filter">
-        <span class="toggle-copy">
-          <span class="toggle-title">Filter</span>
-          <span class="toggle-hint">
-            <span class="hint-on">Active</span>
-            <span class="hint-off">Paused</span>
-          </span>
-        </span>
-        <input type="checkbox" id="enable-filter" checked />
-        <span class="switch" aria-hidden="true">
-          <span class="switch-thumb"></span>
-        </span>
-      </label>
+      <section class="panel" aria-labelledby="adult-filter-heading">
+        <h2 id="adult-filter-heading" class="panel-title">Adult Filter</h2>
 
-      <label class="toggle" for="center-content">
-        <span class="toggle-copy">
-          <span class="toggle-title">Center layout</span>
-          <span class="toggle-hint">
-            <span class="hint-on">Centered</span>
-            <span class="hint-off">Left-aligned</span>
+        <label class="toggle" for="enable-filter">
+          <span class="toggle-copy">
+            <span class="toggle-title">Filter</span>
+            <span class="toggle-hint">
+              <span class="hint-on">Active</span>
+              <span class="hint-off">Paused</span>
+            </span>
           </span>
-        </span>
-        <input type="checkbox" id="center-content" />
-        <span class="switch" aria-hidden="true">
-          <span class="switch-thumb"></span>
-        </span>
-      </label>
+          <input type="checkbox" id="enable-filter" checked />
+          <span class="switch" aria-hidden="true">
+            <span class="switch-thumb"></span>
+          </span>
+        </label>
 
-      <fieldset id="mode-fieldset" class="modes">
-        <legend>Mode</legend>
-        <div class="segment" role="presentation">
-          <label class="segment-option" for="mode-hide">
-            <input type="radio" name="mode" id="mode-hide" value="hide" checked />
-            <span class="segment-face">
-              <span class="segment-label">Hide</span>
-              <span class="segment-desc">Remove listings</span>
+        <fieldset id="mode-fieldset" class="modes">
+          <legend>Mode</legend>
+          <div class="segment" role="presentation">
+            <label class="segment-option" for="mode-hide">
+              <input type="radio" name="mode" id="mode-hide" value="hide" checked />
+              <span class="segment-face">
+                <span class="segment-label">Hide</span>
+                <span class="segment-desc">Remove listings</span>
+              </span>
+            </label>
+            <label class="segment-option" for="mode-blur">
+              <input type="radio" name="mode" id="mode-blur" value="blur" />
+              <span class="segment-face">
+                <span class="segment-label">Blur</span>
+                <span class="segment-desc">Soft covers</span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="panel" aria-labelledby="ui-enhancing-heading">
+        <h2 id="ui-enhancing-heading" class="panel-title">UI Enhancing</h2>
+
+        <label class="toggle" for="center-content">
+          <span class="toggle-copy">
+            <span class="toggle-title">Center layout</span>
+            <span class="toggle-hint">
+              <span class="hint-on">Centered</span>
+              <span class="hint-off">Left-aligned</span>
             </span>
-          </label>
-          <label class="segment-option" for="mode-blur">
-            <input type="radio" name="mode" id="mode-blur" value="blur" />
-            <span class="segment-face">
-              <span class="segment-label">Blur</span>
-              <span class="segment-desc">Soft covers</span>
-            </span>
-          </label>
-        </div>
-      </fieldset>
+          </span>
+          <input type="checkbox" id="center-content" />
+          <span class="switch" aria-hidden="true">
+            <span class="switch-thumb"></span>
+          </span>
+        </label>
+      </section>
 
       <p id="status" class="status" aria-live="polite">
         <span class="status-dot" aria-hidden="true"></span>

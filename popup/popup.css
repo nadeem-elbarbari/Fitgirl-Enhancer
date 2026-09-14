@@ -84,6 +84,31 @@ body {
   font-size: 12px;
 }
 
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+  animation: rise 480ms cubic-bezier(0.22, 1, 0.36, 1) 40ms both;
+}
+
+.panel:nth-of-type(2) {
+  animation-delay: 80ms;
+}
+
+.panel-title {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .toggle {
   --toggle-bg: var(--danger-soft);
   --toggle-border: rgb(242 233 233 / 0.32);
@@ -104,7 +129,6 @@ body {
     border-color 200ms ease,
     background-color 200ms ease,
     transform 180ms ease;
-  animation: rise 480ms cubic-bezier(0.22, 1, 0.36, 1) 40ms both;
 }
 
 .toggle:hover {
@@ -194,7 +218,6 @@ body {
   padding: 0;
   border: 0;
   min-inline-size: 0;
-  animation: rise 520ms cubic-bezier(0.22, 1, 0.36, 1) 80ms both;
 }
 
 .modes legend {
@@ -377,8 +400,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .brand,
-  .toggle,
-  .modes,
+  .panel,
   .status,
   .status-dot,
   .reset {

@@ -28,7 +28,7 @@ async function syncActionIcon(enabled) {
     path: enabled ? ICONS_ON : ICONS_OFF,
   });
   await chrome.action.setTitle({
-    title: enabled ? "FG Bleacher · On" : "FG Bleacher · Off",
+    title: enabled ? "FG Prettier · On" : "FG Prettier · Off",
   });
 }
 
