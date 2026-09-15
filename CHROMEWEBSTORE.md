@@ -1,6 +1,6 @@
 # Chrome Web Store Listing — FG Enhancer
 
-> Last Updated: 2026-09-14
+> Last Updated: 2026-09-15
 
 ## Store Listing
 
@@ -53,7 +53,7 @@ English
 
 | Asset | Dimensions | Status | Filename |
 |-------|-----------|--------|----------|
-| Store Icon [REQUIRED] | 128×128 PNG | ✅ Ready | `icons/icon-on-128.png` |
+| Store Icon [REQUIRED] | 128×128 PNG | ✅ Ready | `icons/icon-on-128.png` (FG+ wordmark from `icons/new-logo.png`) |
 | Screenshot 1 [REQUIRED] | 1280×800 or 640×400 | ⬜ Not created | `store-assets/screenshot-1.png` |
 | Screenshot 2 [RECOMMENDED] | 1280×800 or 640×400 | ⬜ Not created | `store-assets/screenshot-2.png` |
 | Screenshot 3 [RECOMMENDED] | 1280×800 or 640×400 | ⬜ Not created | `store-assets/screenshot-3.png` |
@@ -63,6 +63,7 @@ English
 | Marquee Promo Tile | 1400×560 | ⬜ Not created | |
 
 ### Screenshot Notes
+Toolbar and store icon are the white **FG+** wordmark on black (On) and a dimmed gray FG+ (Off). Capture screenshots after reloading the unpacked extension so the old red “F” icon does not appear.
 1. Homepage with Adult filter **Hide** active (grid tiles with Adult tags removed) + popup open showing Filter on / Hide.
 2. Same page with **Blur** mode so cover images are soft-blurred; popup showing Blur selected.
 3. Wide viewport with **Center layout** enabled vs default left alignment (optional third shot).
@@ -134,7 +135,7 @@ https://nadeem-elbarbari.github.io/Fitgirl-Enhancer/privacy.html
 
 | Version | Date | Changes | Status |
 |---------|------|---------|--------|
-| 1.0.0 | 2026-09-14 | Initial store package: Adult hide/blur filter, center layout, sync settings, On/Off toolbar icons | Draft |
+| 1.0.0 | 2026-09-15 | Initial store package: Adult hide/blur filter, center layout, sync settings, FG+ On/Off toolbar icons | Draft |
 
 
 ## Review Notes
